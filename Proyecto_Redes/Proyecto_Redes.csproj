@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Net_Simulator.cs" />
     <Compile Include="Physical_Layer\Data.cs" />
+    <Compile Include="Physical_Layer\Device.cs" />
     <Compile Include="Physical_Layer\Host.cs" />
     <Compile Include="Physical_Layer\Hub.cs" />
     <Compile Include="Physical_Layer\Instructions\Connect.cs" />
