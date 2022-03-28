@@ -8,13 +8,12 @@ namespace Proyecto_Redes
 {
     public class Create_Host : Instruction
     {
-        public Create_Host(int time, string[] args) : base(time, args)
-        {
-        }
+        public Create_Host(int time, string[] args) : base(time, args){}
 
-        public override bool Exec()
+        public override void Exec(Net_Components nc)
         {
-            throw new NotImplementedException();
+            Host h = new Host(Args[0]);
+            nc.Devices.Add(h.Name, h);
         }
     }
 }

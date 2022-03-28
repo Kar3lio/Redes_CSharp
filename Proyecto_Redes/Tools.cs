@@ -9,8 +9,7 @@ namespace Proyecto_Redes
 {
     public class Tools
     {
-        static readonly string path = "C:\\Users\\Karel\\Desktop\\Tester\\";
-        public static void Write_File(int time, string device_name, int port, string action, string data, bool a_collision)
+        public static void Write_File(string path,int time, string device_name, int port, string action, string data, bool a_collision)
         {
             string collision = "ok";
             if (a_collision)
@@ -21,6 +20,12 @@ namespace Proyecto_Redes
             sw.WriteLine(time + " " + device_name + " " + port + " " + action + " " + data + " " + collision);
             sw.Close();
         }
+
+        internal static void BFS(Net_Components nc, Device a, string v)
+        {
+            throw new NotImplementedException();
+        }
+
         public static List<string> Read_File(string path)
         {
             StreamReader sr = new StreamReader(path);
@@ -35,9 +40,18 @@ namespace Proyecto_Redes
             return lines;
             
         }
-        public static List<Instruction> Build_Instructions(List<string> lines)
+
+        internal static void Clear_Wires(List<Wire> wires)
         {
-            List<Instruction> l = new List<Instruction>();
+            foreach (Wire item in wires)
+            {
+                item.Data = null;
+            }
+        }
+
+        public static Queue<Instruction> Build_Instructions(List<string> lines)
+        {
+            Queue<Instruction> q = new Queue<Instruction>();
             Instruction i = null;
             foreach (string item in lines)
             {
@@ -70,9 +84,10 @@ namespace Proyecto_Redes
                     default:
                         break;
                 }
-                l.Add(i);
+                q.Enqueue(i);
             }
-            return l;
+            q.OrderBy(p => p.Time);
+            return q;
         }
     }
 }

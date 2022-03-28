@@ -12,9 +12,10 @@ namespace Proyecto_Redes
         {
         }
 
-        public override bool Exec()
+        public override void Exec(Net_Components nc)
         {
-            throw new NotImplementedException();
+            Hub h = new Hub(Args[0], int.Parse(Args[1]));
+            nc.Devices.Add(h.Name, h);
         }
     }
 }

@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proyecto_Redes.Physical_Layer
+namespace Proyecto_Redes
 {
     public class Hub : Device
     {
-        //Host y Hub heredan de Device para poder luego hacer el grafo de dispositivos
         
-
         public Hub(string name, int ports_count)
         {
             this.Name = name;

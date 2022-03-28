@@ -4,14 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Proyecto_Redes.Physical_Layer
+namespace Proyecto_Redes
 {
     public class Port
     {
         public string Name { get; set; }
+        public Wire Wire { get; set; }
         public Port(string name)
         {
-            this.Name = name;
+            Name = name;
+            Wire = null;
         }
     }
 }

@@ -12,9 +12,13 @@ namespace Proyecto_Redes
         {
         }
 
-        public override bool Exec()
+        public override void Exec(Net_Components nc)
         {
-            throw new NotImplementedException();
+            Device a = nc.Devices[Args[0]];
+            foreach (Wire item in nc.Wires)
+            {
+                item.Data.Value = int.Parse(Args[1]);
+            }
         }
     }
 }

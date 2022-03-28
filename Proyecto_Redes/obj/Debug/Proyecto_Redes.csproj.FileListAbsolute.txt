@@ -5,3 +5,10 @@ C:\Users\Karel\source\repos\Proyecto_Redes\Proyecto_Redes\obj\Debug\Proyecto_Red
 C:\Users\Karel\source\repos\Proyecto_Redes\Proyecto_Redes\obj\Debug\Proyecto_Redes.csproj.CoreCompileInputs.cache
 C:\Users\Karel\source\repos\Proyecto_Redes\Proyecto_Redes\obj\Debug\Proyecto_Redes.exe
 C:\Users\Karel\source\repos\Proyecto_Redes\Proyecto_Redes\obj\Debug\Proyecto_Redes.pdb
+C:\Users\Karel\Source\Repos\Redes_CSharp\Proyecto_Redes\obj\Debug\Proyecto_Redes.csprojAssemblyReference.cache
+C:\Users\Karel\Source\Repos\Redes_CSharp\Proyecto_Redes\obj\Debug\Proyecto_Redes.csproj.CoreCompileInputs.cache
+C:\Users\Karel\Source\Repos\Redes_CSharp\Proyecto_Redes\obj\Debug\Proyecto_Redes.exe
+C:\Users\Karel\Source\Repos\Redes_CSharp\Proyecto_Redes\obj\Debug\Proyecto_Redes.pdb
+C:\Users\Karel\Source\Repos\Redes_CSharp\Proyecto_Redes\bin\Debug\Proyecto_Redes.exe.config
+C:\Users\Karel\Source\Repos\Redes_CSharp\Proyecto_Redes\bin\Debug\Proyecto_Redes.exe
+C:\Users\Karel\Source\Repos\Redes_CSharp\Proyecto_Redes\bin\Debug\Proyecto_Redes.pdb

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Net_Components.cs" />
     <Compile Include="Net_Simulator.cs" />
     <Compile Include="Physical_Layer\Data.cs" />
     <Compile Include="Physical_Layer\Device.cs" />

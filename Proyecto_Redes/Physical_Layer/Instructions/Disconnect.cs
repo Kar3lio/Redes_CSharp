@@ -13,9 +13,15 @@ namespace Proyecto_Redes
 
         }
 
-        public override bool Exec()
+        public override void Exec(Net_Components nc)
         {
-            throw new NotImplementedException();
+            foreach (Wire item in nc.Wires)
+            {
+                if(item.Port1.Name==Args[0])
+                {
+                    nc.Wires.Remove(item);
+                }
+            }            
         }
     }
 }

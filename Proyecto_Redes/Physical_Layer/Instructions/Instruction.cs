@@ -16,6 +16,6 @@ namespace Proyecto_Redes
             Time = time;
             Args = args;
         }
-        public abstract bool Exec();
+        public abstract void Exec(Net_Components nc);
     }
 }
