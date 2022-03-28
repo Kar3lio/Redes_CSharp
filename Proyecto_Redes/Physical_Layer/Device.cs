@@ -8,5 +8,6 @@ namespace Proyecto_Redes.Physical_Layer
 {
     public abstract class Device
     {
+        public string Name { get; set; }
     }
 }

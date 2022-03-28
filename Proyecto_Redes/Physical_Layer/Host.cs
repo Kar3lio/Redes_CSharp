@@ -8,8 +8,8 @@ namespace Proyecto_Redes.Physical_Layer
 {
     public class Host : Device
     {
-        public Port Port1 { get; set; }
-        public string Name { get; set; }
+        public Port Port1 { get; set; } 
+
         public Host(string name)
         {
             this.Name = name;

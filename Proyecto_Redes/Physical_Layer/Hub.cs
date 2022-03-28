@@ -10,7 +10,6 @@ namespace Proyecto_Redes.Physical_Layer
     {
         //Host y Hub heredan de Device para poder luego hacer el grafo de dispositivos
         public List<Port> Ports { get; set; }
-        public string Name { get; set; }
 
         public Hub(string name, int ports_count)
         {
