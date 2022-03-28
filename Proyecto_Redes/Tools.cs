@@ -9,8 +9,8 @@ namespace Proyecto_Redes
 {
     public class Tools
     {
-        readonly string path = "C:\\Users\\Karel\\Desktop\\Tester\\";
-        public void Write_File(int time, string device_name, int port, string action, string data, bool a_collision)
+        static readonly string path = "C:\\Users\\Karel\\Desktop\\Tester\\";
+        public static void Write_File(int time, string device_name, int port, string action, string data, bool a_collision)
         {
             string collision = "ok";
             if (a_collision)
@@ -21,7 +21,7 @@ namespace Proyecto_Redes
             sw.WriteLine(time + " " + device_name + " " + port + " " + action + " " + data + " " + collision);
             sw.Close();
         }
-        public List<string> Read_File(string path)
+        public static List<string> Read_File(string path)
         {
             StreamReader sr = new StreamReader(path);
             List<string> lines = new List<string>();
@@ -35,7 +35,7 @@ namespace Proyecto_Redes
             return lines;
             
         }
-        public List<Instruction> Build_Instructions(List<string> lines)
+        public static List<Instruction> Build_Instructions(List<string> lines)
         {
             List<Instruction> l = new List<Instruction>();
             Instruction i = null;

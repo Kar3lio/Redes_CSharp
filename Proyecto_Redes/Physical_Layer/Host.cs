@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Redes.Physical_Layer
 {
-    class Host
+    public class Host : Device
     {
         public Port Port1 { get; set; }
+        public string Name { get; set; }
+        public Host(string name)
+        {
+            this.Name = name;
+            Port1 = new Port(name + "_1");
+        }
     }
 }

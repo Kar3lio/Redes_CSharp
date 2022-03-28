@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Redes.Physical_Layer
 {
-    public class Port
+    public abstract class Device
     {
-        public string Name { get; set; }
-        public Port(string name)
-        {
-            this.Name = name;
-        }
     }
 }
