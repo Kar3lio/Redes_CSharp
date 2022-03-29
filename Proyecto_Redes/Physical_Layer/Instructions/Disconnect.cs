@@ -8,10 +8,7 @@ namespace Proyecto_Redes
 {
     public class Disconnect:Instruction
     {
-        public Disconnect(int time, string[] args) : base(time, args)
-        {
-
-        }
+        public Disconnect(int time, string[] args) : base(time, args){}
 
         public override void Exec(Net_Components nc)
         {

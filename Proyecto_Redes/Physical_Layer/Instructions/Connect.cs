@@ -8,9 +8,7 @@ namespace Proyecto_Redes
 {
     public class Connect : Instruction
     {
-        public Connect(int time, string[] args):base(time, args)
-        {
-        }
+        public Connect(int time, string[] args):base(time, args){}
 
         public override void Exec(Net_Components nc)
         {
