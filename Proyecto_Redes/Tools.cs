@@ -9,17 +9,7 @@ namespace Proyecto_Redes
 {
     public class Tools
     {
-        public static void Write_File(string path,int time, string device_name, int port, string action, string data, bool a_collision)
-        {
-            string collision = "ok";
-            if (a_collision)
-            {
-                collision = "collision";
-            }
-            StreamWriter sw = new StreamWriter(path + device_name + ".txt",true);
-            sw.WriteLine(time + " " + device_name + " " + port + " " + action + " " + data + " " + collision);
-            sw.Close();
-        }
+        
 
         internal static void BFS(Net_Components nc, Device start, Data data)
         {
@@ -41,13 +31,15 @@ namespace Proyecto_Redes
                 foreach (Device v in adj[u.Name])
                 {
                     if (d[v.Name] == -1) 
-                    {   //aqui descubrimos un nuevo nodo hay que ver que se hace, por ahora poner Data en el cable(arista)
+                    {   
+                        //aqui descubrimos un nuevo nodo hay que ver que se hace, por ahora poner Data en el cable(arista)
                         //mas adelante el dato se envia a una pc en especifico, en ese caso cuando la encontremos paramos
                         d[v.Name] = d[u.Name] + 1;
                         pi[v.Name] = u;
                         q.Enqueue(v);
                         Wire w = Get_Wire(u.Name,v.Name,nc.Wires);
                         w.Data = data;
+                        v.ReadData(nc.Time);
                     }
                 }
             }
@@ -130,6 +122,17 @@ namespace Proyecto_Redes
             sr.Close();
             return lines;
             
+        }
+        public static void Write_File(string path, int time, string device_name, string port_name, string action, int data, bool a_collision)
+        {
+            string collision = "ok";
+            if (a_collision)
+            {
+                collision = "collision";
+            }
+            StreamWriter sw = new StreamWriter(path + device_name + ".txt", true);
+            sw.WriteLine(time + " " + port_name + " " + action + " " + data + " " + collision);
+            sw.Close();
         }
 
         internal static void Clear_Wires(List<Wire> wires)

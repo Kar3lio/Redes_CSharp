@@ -11,12 +11,11 @@ namespace Proyecto_Redes
         int signal_time;
         public Net_Components NC { get; set; }
         public string Path { get; set; }
-        public int Time { get; set; }
+        
         public Queue<Instruction> Instructions { get; set; }
         public Net_Simulator()
         {
             NC = new Net_Components();
-            Path = "efvadfv";
             signal_time = 2;
         }
 
@@ -27,24 +26,36 @@ namespace Proyecto_Redes
             int i_time = signal_time;
             while (true)
             {
-                if (current.Time <= Time)
+                if (current.Time <= NC.Time)
                 {
                     current.Exec(NC);
-                }
-                if(current is Send)
-                {
-                    if(i_time==0)
+                    if (current is Send)
+                    {
+                        if (i_time == 0)
+                        {
+                            ((Send)current).Pointer++;
+                            if (((Send)current).Pointer == current.Args[1].Length)
+                            {
+                                current = Instructions.Dequeue();
+                                i_time = signal_time;
+                                Tools.Clear_Wires(NC.Wires);
+                            }
+                        }
+                        else
+                        {
+                            i_time--;
+                            Tools.Clear_Wires(NC.Wires);
+                        }
+                    }
+                    else
                     {
                         current = Instructions.Dequeue();
                         i_time = signal_time;
                         Tools.Clear_Wires(NC.Wires);
                     }
-                    else
-                    {
-                        i_time--;
-                    }
                 }
-                Time++;
+                
+                NC.Time++;
             }
         }
     }

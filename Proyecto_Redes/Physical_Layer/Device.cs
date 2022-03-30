@@ -9,6 +9,8 @@ namespace Proyecto_Redes
     public abstract class Device
     {
         public string Name { get; set; }
+
         public List<Port> Ports { get; set; }
+        public abstract void ReadData(int time);
     }
 }

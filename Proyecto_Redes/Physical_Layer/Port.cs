@@ -9,11 +9,12 @@ namespace Proyecto_Redes
     public class Port
     {
         public string Name { get; set; }
-        public Wire Wire { get; set; }
+        public Wire WireP { get; set; }
+        public Data DataP { get; set; }
         public Port(string name)
         {
             Name = name;
-            Wire = null;
+            WireP = null;
         }
     }
 }

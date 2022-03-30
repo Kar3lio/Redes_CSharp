@@ -8,6 +8,10 @@ namespace Proyecto_Redes
 {
     public class Data
     {
-        public string Value { get; set; }
+        public int Value { get; set; }
+        public int Control { get; set; }
+        public Data()
+        {
+        }
     }
 }

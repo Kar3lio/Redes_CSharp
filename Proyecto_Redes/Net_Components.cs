@@ -10,7 +10,8 @@ namespace Proyecto_Redes
     {
         public Dictionary<string, Device> Devices { get; set; }
         public List<Wire> Wires { get; set; }
-        
+        public int Time { get; set; }
+
         public Net_Components()
         {
             Devices = new Dictionary<string, Device>();
