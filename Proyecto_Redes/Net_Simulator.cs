@@ -9,6 +9,7 @@ namespace Proyecto_Redes
     public class Net_Simulator
     {
         int signal_time;
+        private bool not_finished;
         public Net_Components NC { get; set; }
         public string Path { get; set; }
         
@@ -17,6 +18,7 @@ namespace Proyecto_Redes
         {
             NC = new Net_Components();
             signal_time = 2;
+            not_finished = true;
         }
 
         public void Run_Simulation()
@@ -24,7 +26,7 @@ namespace Proyecto_Redes
             Instructions = Tools.Build_Instructions(Tools.Read_File(Path));
             Instruction current = Instructions.Dequeue();
             int i_time = signal_time;
-            while (true)
+            while (not_finished)
             {
                 if (current.Time <= NC.Time)
                 {
@@ -36,10 +38,21 @@ namespace Proyecto_Redes
                             ((Send)current).Pointer++;
                             if (((Send)current).Pointer == current.Args[1].Length)
                             {
-                                current = Instructions.Dequeue();
-                                i_time = signal_time;
-                                Tools.Clear_Wires(NC.Wires);
+                                if (Instructions.Count > 0)
+                                {
+                                    current = Instructions.Dequeue();
+                                }
+                                else
+                                {
+                                    not_finished = false;
+                                }
                             }
+                            else
+                            {
+                                ((Send)current).Update();
+                            }
+                            i_time = signal_time;
+                            Tools.Clear_Wires(NC.Wires);
                         }
                         else
                         {
@@ -49,7 +62,14 @@ namespace Proyecto_Redes
                     }
                     else
                     {
-                        current = Instructions.Dequeue();
+                        if (Instructions.Count > 0)
+                        {
+                            current = Instructions.Dequeue();
+                        }
+                        else
+                        {
+                            not_finished = false;
+                        }
                         i_time = signal_time;
                         Tools.Clear_Wires(NC.Wires);
                     }

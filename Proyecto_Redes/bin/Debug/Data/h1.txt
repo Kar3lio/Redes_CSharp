@@ -1,0 +1,15 @@
+7 h1_1 receive 1 ok
+7 h1_2 send 1 ok
+7 h1_3 send 1 ok
+10 h1_1 receive 0 ok
+10 h1_2 send 0 ok
+10 h1_3 send 0 ok
+13 h1_1 receive 1 ok
+13 h1_2 send 1 ok
+13 h1_3 send 1 ok
+17 h1_2 receive 0 ok
+17 h1_1 send 0 ok
+20 h1_2 receive 0 ok
+20 h1_1 send 0 ok
+23 h1_2 receive 0 ok
+23 h1_1 send 0 ok

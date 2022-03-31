@@ -16,7 +16,10 @@ namespace Proyecto_Redes
             {
                 if(item.Port1.Name==Args[0])
                 {
+                    item.Port1.WireP = null;
+                    item.Port2.WireP = null;
                     nc.Wires.Remove(item);
+                    break;
                 }
             }            
         }

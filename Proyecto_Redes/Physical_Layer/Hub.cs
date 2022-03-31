@@ -26,21 +26,23 @@ namespace Proyecto_Redes
             Port receiving_port = null;
             foreach (Port item in Ports)
             {
-                if (item.WireP.Data != null)
+                if (item.WireP != null && item.WireP.Data != null)
                 {
                     receiving_port = item;
                 }
             }
             if (receiving_port.DataP != receiving_port.WireP.Data)
             {
+                receiving_port.DataP = receiving_port.WireP.Data;
                 Tools.Write_File("Data\\" + Name + ".txt",time,Name,receiving_port.Name,"receive",receiving_port.DataP.Value,false);
                 foreach (Port item in Ports)
                 {
                     if (item.WireP != null)
                     {
-                        item.DataP = item.WireP.Data;
+                        
                         if (receiving_port.Name != item.Name)
                         {
+                            item.DataP = receiving_port.WireP.Data;
                             Tools.Write_File("Data\\" + Name + ".txt", time, Name, item.Name, "send", item.DataP.Value, false);
                         }
                     }

@@ -130,7 +130,7 @@ namespace Proyecto_Redes
             {
                 collision = "collision";
             }
-            StreamWriter sw = new StreamWriter(path + device_name + ".txt", true);
+            StreamWriter sw = new StreamWriter(path, true);
             sw.WriteLine(time + " " + port_name + " " + action + " " + data + " " + collision);
             sw.Close();
         }
@@ -145,22 +145,22 @@ namespace Proyecto_Redes
 
         public static Queue<Instruction> Build_Instructions(List<string> lines)
         {
-            Queue<Instruction> q = new Queue<Instruction>();
+            List<Instruction> q = new List<Instruction>();
             Instruction i = null;
             foreach (string item in lines)
             {
                 string[] temp = item.Split();
                 int time = int.Parse(temp[0]);
                 string[] aux  = new string[temp.Length - 2];
-                temp.CopyTo(aux, 2);
+                Array.Copy(temp, 2, aux, 0, aux.Length);
                 switch (temp[1])
                 {
                     case "connect":
                         i = new Connect(time, aux);
                         break;
                     case "create":
-                        aux = new string[temp.Length - 3];
-                        temp.CopyTo(aux, 3);
+                        aux = new string[temp.Length-3];
+                        Array.Copy(temp, 3, aux, 0, aux.Length);
 
                         if (temp[2] == "hub")
                             i = new Create_Hub(time, aux);
@@ -178,10 +178,10 @@ namespace Proyecto_Redes
                     default:
                         break;
                 }
-                q.Enqueue(i);
+                q.Add(i);
             }
-            q.OrderBy(p => p.Time);
-            return q;
+            q = q.OrderBy(p => p.Time).ToList();
+            return new Queue<Instruction>(q);
         }
     }
 }
